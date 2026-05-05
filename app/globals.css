@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 38 41% 90%; /* paper warm-on-dark, não branco puro */
+
+    --card: 222 47% 8%;
+    --card-foreground: 38 41% 90%;
+
+    --primary: 45 96% 54%; /* gold-400 BB-aligned */
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 217 33% 12%;
+    --secondary-foreground: 38 41% 90%;
+
+    --muted: 217 33% 14%;
+    --muted-foreground: 215 18% 60%;
+
+    --accent: 45 96% 54%;
+    --accent-foreground: 222 47% 6%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 45 96% 54%;
+
+    --radius: 0.5rem; /* mais cortante que 0.75 */
+
+    /* Easing autoral — Emil-style, restrito */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+  }
+
+  /* Ambient — paper grain sutil em vez de grid */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(70% 50% at 50% -10%, rgba(252, 196, 25, 0.06) 0%, transparent 60%),
+      radial-gradient(50% 35% at 100% 100%, rgba(156, 90, 31, 0.05) 0%, transparent 60%);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* Ruído de papel — assinatura textural, não grid genérico */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.04 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+  }
+
+  ::selection {
+    @apply bg-gold-400/30 text-gold-100;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  /* USAR APENAS UMA VEZ POR PÁGINA — assinatura, não tique */
+  .text-display-gold {
+    color: #FCC419;
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  /* Superfície sólida com peso — substituta do glass-card */
+  .surface-1 {
+    @apply bg-slate-900 border border-slate-800;
+  }
+
+  /* Superfície com border-l assimétrica — assinatura visual */
+  .surface-edge {
+    @apply bg-slate-900/60 border-l-2 border-l-gold-400;
+  }
+
+  /* Editorial number — usado como número de seção lateral */
+  .editorial-num {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: -0.04em;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
