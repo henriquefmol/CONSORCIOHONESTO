@@ -2,6 +2,8 @@
 
 Landing page de alta conversão para representante autorizado de consórcio do Banco do Brasil. Stack moderno, mobile-first, otimizado para tráfego pago do Meta Ads.
 
+🌐 **Produção:** https://consorciohonesto.com.br
+
 ## Stack
 
 - Next.js 14 (App Router) + TypeScript
