@@ -48,7 +48,7 @@ export function Hero({ onSimulate }: Props) {
               className="font-display text-[2.75rem] sm:text-6xl lg:text-[4rem] font-medium tracking-[-0.03em] leading-[0.98] text-balance"
             >
               Realize o sonho da{" "}
-              <span className="text-display-gold whitespace-nowrap">
+              <span className="text-display-gold lg:whitespace-nowrap">
                 casa ou do carro
               </span>{" "}
               sem pagar juros.
@@ -77,11 +77,11 @@ export function Hero({ onSimulate }: Props) {
               <Button
                 size="xl"
                 onClick={onSimulate}
-                className="group w-full sm:w-auto"
+                className="group w-full sm:w-auto h-16 px-10 text-base font-bold tracking-tight shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_4px_24px_-4px_rgba(252,196,25,0.5),0_2px_8px_rgba(0,0,0,0.4)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_6px_32px_-4px_rgba(252,196,25,0.65),0_2px_8px_rgba(0,0,0,0.4)] transition-shadow duration-200"
                 aria-label="Simular minha carta de consórcio"
               >
                 Simular minha carta
-                <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+                <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
               </Button>
               <div className="flex items-center justify-center sm:justify-start gap-2 text-sm text-paper-dim sm:px-2">
                 <Sparkles className="h-4 w-4 text-gold-400" />
@@ -89,26 +89,15 @@ export function Hero({ onSimulate }: Props) {
               </div>
             </motion.div>
 
-            {/* Assinatura humana — foto + nome do representante */}
+            {/* Assinatura — selo de credibilidade */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, ease: easeExpo, delay: 0.3 }}
               className="flex items-center gap-3 pt-6 border-t border-white/[0.06]"
             >
-              {/* TODO: substituir /public/marcao.jpg pela foto real do representante */}
-              <div className="relative h-11 w-11 rounded-full overflow-hidden bg-gradient-to-br from-gold-700 to-gold-900 ring-2 ring-gold-400/20">
-                <span className="absolute inset-0 flex items-center justify-center font-display text-base font-medium text-gold-200">
-                  M
-                </span>
-              </div>
-              <div className="space-y-0.5">
-                <div className="text-sm font-medium text-paper">
-                  Marcão
-                </div>
-                <div className="text-[11px] text-muted-foreground">
-                  Representante BB · Belo Horizonte/MG
-                </div>
+              <div className="text-sm font-medium text-paper">
+                Representante autorizado Banco do Brasil
               </div>
               <div className="ml-auto flex items-center gap-1.5 text-[11px] text-gold-300">
                 <ShieldCheck className="h-3.5 w-3.5" />
