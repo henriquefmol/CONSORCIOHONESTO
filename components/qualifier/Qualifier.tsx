@@ -103,13 +103,15 @@ export function Qualifier({ open, onOpenChange }: Props) {
               {step === 1 && (
                 <Step1Objetivo
                   value={data.objetivo}
-                  onChange={(v) => setData({ ...data, objetivo: v })}
+                  onChange={(v) => setData((d) => ({ ...d, objetivo: v }))}
                 />
               )}
               {step === 2 && (
                 <Step2Carta
                   value={data.faixaCarta}
-                  onChange={(v) => setData({ ...data, faixaCarta: v })}
+                  onChange={(v) =>
+                    setData((d) => ({ ...d, faixaCarta: v }))
+                  }
                 />
               )}
               {step === 3 && (
@@ -117,10 +119,10 @@ export function Qualifier({ open, onOpenChange }: Props) {
                   temLance={data.temLance}
                   faixaLance={data.faixaLance}
                   onChangeTemLance={(v) =>
-                    setData({ ...data, temLance: v })
+                    setData((d) => ({ ...d, temLance: v }))
                   }
                   onChangeFaixaLance={(v) =>
-                    setData({ ...data, faixaLance: v })
+                    setData((d) => ({ ...d, faixaLance: v }))
                   }
                 />
               )}
